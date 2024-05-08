@@ -11,7 +11,7 @@ import { SosService } from './sos.service';
 import { CreateSoDto } from './dto/create-so.dto';
 import { UpdateSoDto } from './dto/update-so.dto';
 
-@Controller('v1/sos')
+@Controller('v1/sos/')
 export class SosController {
   constructor(private readonly sosService: SosService) {}
 
@@ -27,7 +27,7 @@ export class SosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.sosService.findOne(+id);
+    return this.sosService.findOne(id);
   }
 
   @Patch(':id')

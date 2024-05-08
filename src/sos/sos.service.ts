@@ -18,7 +18,7 @@ export class SosService {
     return this.sosModel.find().exec();
   }
 
-  async findOne(id: number): Promise<Sos> {
+  async findOne(id: string): Promise<Sos> {
     return this.sosModel.findById(id).exec();
   }
 
