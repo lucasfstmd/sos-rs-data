@@ -1,0 +1,35 @@
+services:
+  sos-data:
+    container_name: sos-data
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - sos-network
+    ports:
+      - "8080:8080"
+
+  mongo:
+    image: mongo:latest
+    container_name: sos-mongo
+    restart: always
+    networks:
+      - sos-network
+    volumes:
+      - sos-mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+
+volumes:
+  sos-mongo-data:
+    name: sos-mongo
+
+networks:
+  sos-network:
+    name: sos-network
+    driver: bridge

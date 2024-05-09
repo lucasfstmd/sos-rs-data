@@ -1,13 +1,10 @@
-import mongoose, { HydratedDocument } from 'mongoose';
+import { HydratedDocument, now } from 'mongoose';
 import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 export type SosDocument = HydratedDocument<Sos>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Sos {
-  @Prop({ type: mongoose.Schema.Types.ObjectId })
-  id: number;
-
   @Prop()
   urgencia: string;
 
@@ -38,6 +35,12 @@ export class Sos {
     }),
   )
   localizacao: Record<string, any>;
+
+  @Prop({ default: now() })
+  createdAt: Date;
+
+  @Prop({ default: now() })
+  updatedAt: Date;
 }
 
 export const SosSchema = SchemaFactory.createForClass(Sos);

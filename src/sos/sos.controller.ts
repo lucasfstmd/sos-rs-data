@@ -32,11 +32,11 @@ export class SosController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSoDto: UpdateSoDto) {
-    return this.sosService.update(+id, updateSoDto);
+    return this.sosService.update(id, updateSoDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.sosService.remove(+id);
+    return this.sosService.remove(id);
   }
 }

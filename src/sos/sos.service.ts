@@ -22,11 +22,11 @@ export class SosService {
     return this.sosModel.findById(id).exec();
   }
 
-  async update(id: number, updateSoDto: UpdateSoDto) {
+  async update(id: string, updateSoDto: UpdateSoDto) {
     return this.sosModel.findByIdAndUpdate(id, updateSoDto).exec();
   }
 
-  async remove(id: number) {
-    return this.sosModel.findOneAndDelete({ _id: id }).exec();
+  async remove(id: string) {
+    return this.sosModel.findByIdAndDelete(id).exec();
   }
 }

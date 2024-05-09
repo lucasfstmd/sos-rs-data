@@ -5,10 +5,7 @@ import { SosModule } from './sos/sos.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [
-    SosModule,
-    MongooseModule.forRoot('mongodb://localhost:27017/sos-rs'),
-  ],
+  imports: [SosModule, MongooseModule.forRoot('mongodb://mongo:27017/sos-rs')],
   controllers: [AppController],
   providers: [AppService],
 })
