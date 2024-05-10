@@ -16,6 +16,9 @@ services:
     restart: always
     networks:
       - sos-network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWD}
     volumes:
       - sos-mongo-data:/data/db
     ports:
